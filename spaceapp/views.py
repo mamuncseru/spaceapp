@@ -1,12 +1,14 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from rest_framework import viewsets
+# from rest_framework import viewsets
+# import requests
 
 from skyfield.api import load, wgs84
 from skyfield.api import EarthSatellite
 import json
 
 stations_url = 'https://celestrak.com/NORAD/elements/1999-025.txt'
+# textfile = requests.get(stations_url)
 satellites = load.tle_file(stations_url)
 # print('Loaded', len(satellites), 'debris')
 
@@ -23,7 +25,7 @@ satellites = load.tle_file(stations_url)
 ts = load.timescale()
 t = ts.now()
 
-i = 0
+# i = 0
 sat_data = {}
 longitude = []
 latitude = []
